@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using XForms.Print.Services;
 
 namespace XForms.Print
 {
@@ -13,6 +14,12 @@ namespace XForms.Print
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        void PrintBtnClicked(object sender, EventArgs e)
+        {
+            var service = DependencyService.Get<IPrinterService>();
+            service.Print();
         }
     }
 }
