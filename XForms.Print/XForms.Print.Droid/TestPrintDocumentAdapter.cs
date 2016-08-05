@@ -16,12 +16,14 @@ namespace XForms.Print
     public class TestPrintDocumentAdapter : PrintDocumentAdapter
     {
         Context context;
+        string text;
         PrintedPdfDocument document;
         float scale;
 
-        public TestPrintDocumentAdapter(Context context)
+        public TestPrintDocumentAdapter(Context context, string text)
         {
             this.context = context;
+            this.text = text;
         }
 
         public override void OnLayout(PrintAttributes oldAttributes, PrintAttributes newAttributes,
@@ -62,7 +64,7 @@ namespace XForms.Print
 
             page.Canvas.Scale(scale, scale);
 
-            page.Canvas.DrawText("hello pdf!", page.Canvas.ClipBounds.Right / 2, page.Canvas.ClipBounds.Bottom / 2, new Android.Graphics.Paint());
+            page.Canvas.DrawText(text, page.Canvas.ClipBounds.Right / 2, page.Canvas.ClipBounds.Bottom / 2, new Android.Graphics.Paint());
             
             document.FinishPage(page);
 

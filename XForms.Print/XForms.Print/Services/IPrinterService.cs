@@ -8,6 +8,6 @@ namespace XForms.Print.Services
 {
     public interface IPrinterService
     {
-        void Print();
+        void Print(string text);
     }
 }

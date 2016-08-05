@@ -19,7 +19,7 @@ namespace XForms.Print
         void PrintBtnClicked(object sender, EventArgs e)
         {
             var service = DependencyService.Get<IPrinterService>();
-            service.Print();
+            service.Print("hello XForms.Print");
         }
     }
 }

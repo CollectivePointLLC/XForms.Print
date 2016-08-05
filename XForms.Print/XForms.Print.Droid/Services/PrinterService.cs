@@ -28,12 +28,12 @@ namespace XForms.Print.Droid.Services
             printMgr = mgr;
         }
 
-        public void Print()
+        public void Print(string text)
         {
             if (printMgr == null)
                 throw new NullReferenceException("PrinterService.Print() was called, but PrinterService.printMgr is null");
             
-            printMgr.Print("test", new TestPrintDocumentAdapter(Android.App.Application.Context), null);
+            printMgr.Print("Print Job " + DateTime.Now.ToString(), new TestPrintDocumentAdapter(Android.App.Application.Context, text), null);
         }
     }
 }

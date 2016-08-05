@@ -11,13 +11,13 @@ namespace XForms.Print.iOS.Services
 {
     public class PrinterService : IPrinterService
     {
-        public void Print()
+        public void Print(string text)
         {
             var printInfo = UIPrintInfo.PrintInfo;
             printInfo.OutputType = UIPrintInfoOutputType.General;
-            printInfo.JobName = "My first Print Job";
+            printInfo.JobName = "Print Job " + DateTime.Now.ToString();
 
-            var textFormatter = new UISimpleTextPrintFormatter("Once upon a time...")
+            var textFormatter = new UISimpleTextPrintFormatter(text)
             {
                 StartPage = 0,
                 ContentInsets = new UIEdgeInsets(72, 72, 72, 72),
